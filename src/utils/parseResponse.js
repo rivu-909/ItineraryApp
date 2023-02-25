@@ -1,31 +1,31 @@
 export default function parseResponse(res) {
-  // /([^.]*\.)\s+/g
-  const response = res.split("\n");
+  const response = res.split(/\. |\n|:/);
   const len = response.length;
   const dayLists = [];
   let dayNum = 0;
   let taskList = [];
+  let taskId = 0;
 
   for (let i = 0; i < len; i++) {
     if (response[i].length === 0) continue;
-    if (response[i].includes("Day ")) {
+    if (response[i].includes("Day ") || response[i].includes("DAY ")) {
       if (taskList.length !== 0) {
         dayLists.push({
           dayNum: ++dayNum,
-          listLength: taskList.length,
+          listCount: taskList.length,
           taskList,
         });
       }
       taskList = [];
     } else {
-      taskList.push(response[i]);
+      taskList.push({ taskId: ++taskId, text: response[i] });
     }
   }
 
   if (taskList.length !== 0) {
     dayLists.push({
       dayNum: ++dayNum,
-      listLength: taskList.length,
+      listCount: taskList.length,
       taskList,
     });
   }

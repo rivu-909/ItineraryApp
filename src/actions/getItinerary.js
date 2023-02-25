@@ -13,6 +13,8 @@ export default function getItinerary(place, numOfDays) {
       const isValidPlace = parsePlaceValidityResponse(response);
       if (isValidPlace) {
         store.dispatch(fetchItinerary({ place, numOfDays }));
+      } else {
+        alert("Please enter a valid place name!");
       }
     });
 }

@@ -1,10 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import openAIKey from "../apiKey";
 
 export const fetchPlaceValidity = createAsyncThunk(
   "itinerary/place",
   async (place) => {
-    const apiKey = "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";
+    // this is the key that we can get from the openAI's profile section.
+    // https://platform.openai.com/ >> Personal >> View API keys
+    const apiKey = openAIKey;
     const prompt = `Is ${place} a valid place in yes/no`;
     const model = "text-davinci-003";
     const temperature = 0;
@@ -23,7 +26,6 @@ export const fetchPlaceValidity = createAsyncThunk(
     };
 
     const response = await axios.post(
-      //   "https://google.co.in",
       "https://api.openai.com/v1/completions",
       data,
       { headers }

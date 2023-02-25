@@ -1,0 +1,33 @@
+.taskContainer {
+  padding: 4px 24px;
+  margin: 0 12px;
+  border-radius: 8px;
+  font-size: larger;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.taskContainer:hover {
+  background-color: rgba(45, 45, 45, 0.415);
+}
+
+.buttonsContainer {
+  display: none;
+  margin-left: 8px;
+}
+
+.taskContainer:hover .buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 4px;
+}
