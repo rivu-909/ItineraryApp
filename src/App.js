@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="screen">
-      <div className="title">Milan: Decide your Itinerary</div>
+      <div className="title">Plan your trip</div>
       <InputContainer itinerary={itinerary} />
       <div className="dayListContainer">
         {isLoading ? (
