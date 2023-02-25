@@ -18,7 +18,7 @@ export default function DayView({ dayList, index }) {
   return (
     <div className="dayViewContainer">
       <div className="headerContainer">
-        <div className="dayLabel">Day {index}</div>
+        <div className="dayLabel">Day {index + 1}</div>
         <div className="buttonContainer">
           <Button size="medium" onClick={addTaskHandler}>
             <Add />
